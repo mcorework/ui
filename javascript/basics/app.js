@@ -55,4 +55,7 @@ x();
 var message = 'My new name is "John"';
 //var message = "I am 'John'";
 var hexInt = 0xff;
-alert("Data Type is :" + typeof hexInt);
+//alert("Data Type is :" + typeof hexInt);
+
+var negInfinity = 1 / -0;
+console.log(negInfinity);
