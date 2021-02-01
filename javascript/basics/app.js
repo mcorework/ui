@@ -1,5 +1,5 @@
 //"use strict";
-console.log('Connected to js.');
+console.log("Connected to js.");
 
 // Notes
 // Declare a variable
@@ -9,38 +9,38 @@ console.log('Connected to js.');
  *      given, the variables which are not declared are global variables.
  * (b) let vs var, var is function scope and let is block scoped.
  * (c) const in js cannnot be changed.
- * 
+ *
  */
 
-var num =8;
+var num = 8;
 
-(function (){
-    i=6;
-    console.log(i);
-}());
-console.log('Printing the global variable: '+i);
+(function() {
+  i = 6;
+  console.log(i);
+})();
+console.log("Printing the global variable: " + i);
 
-(function abc(){
-    var k = 1;
-    if(true){
-        var k =3;
-        console.log(k);
-    }
+(function abc() {
+  var k = 1;
+  if (true) {
+    var k = 3;
     console.log(k);
-}());
+  }
+  console.log(k);
+})();
 
 /***************  2. Hoisting in Javascript **************
  * (a) All the variables are hoisted in the top of the functon.
- * 
+ *
  */
 
-var x = function(){ 
-    var a =6; //function scope
-    if(true){
-        var y=4; //block scope
-    }
-    console.log(y);
-}
+var x = function() {
+  var a = 6; //function scope
+  if (true) {
+    var y = 4; //block scope
+  }
+  console.log(y);
+};
 x();
 
 /***************  3. Scope and Scope Chain **************
@@ -49,11 +49,10 @@ x();
  * -Primary Data Type   :  (String, Number[NaN, +infinity, -infinity, +0, -0], Boolean)
  * -Composite Data Type :  (Array, Object)
  * -Special Data Type   :  (NAN,Undefined, Null)
- * 
+ *
  */
 
- var message = 'I am "John"';
- //var message = "I am 'John'";
- var hexInt = 0xff;
-  alert('Data Type is :' +typeof(hexInt));
-
+var message = 'My name is "John"';
+//var message = "I am 'John'";
+var hexInt = 0xff;
+alert("Data Type is :" + typeof hexInt);
