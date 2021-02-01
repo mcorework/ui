@@ -52,7 +52,7 @@ x();
  *
  */
 
-var message = 'My name is "John"';
+var message = 'My new name is "John"';
 //var message = "I am 'John'";
 var hexInt = 0xff;
 alert("Data Type is :" + typeof hexInt);
