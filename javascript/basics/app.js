@@ -59,3 +59,13 @@ var hexInt = 0xff;
 
 var negInfinity = 1 / -0;
 console.log(negInfinity);
+
+/***************  5. Objects and Properties **************
+ * (a) Nested functions have access to variables declared in their outer space.
+ * -Primary Data Type   :  (String, Number[NaN, +infinity, -infinity, +0, -0], Boolean)
+ * -Composite Data Type :  (Array, Object)
+ * -Special Data Type   :  (NAN,Undefined, Null)
+ *
+ */
+
+var obj = {}; //Empty object
