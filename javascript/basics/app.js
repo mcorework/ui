@@ -44,7 +44,6 @@ var x = function() {
 x();
 
 /***************  3. Scope and Scope Chain **************
- ***************  4. Data types *************************
  * (a) Nested functions have access to variables declared in their outer space.
  * -Primary Data Type   :  (String, Number[NaN, +infinity, -infinity, +0, -0], Boolean)
  * -Composite Data Type :  (Array, Object)
@@ -60,37 +59,62 @@ var hexInt = 0xff;
 var negInfinity = 1 / -0;
 console.log(negInfinity);
 
-/***************  5. Objects and Properties **************
+/***************  4. Objects and Properties **************
  * (a) Objects are noted with {}. Arrays are special type of objects [].
  */
 
 var obj = {}; //Empty object
-var x1 ={prop1:"prop1val", prop2:"prop2val", prop3:null, prop4:null, "prop4 with space":null};
-x1.prop3="prop3val";
-x1["prop4 with space"] ="prop4val";
+var x1 = {
+  prop1: "prop1val",
+  prop2: "prop2val",
+  prop3: null,
+  prop4: null,
+  "prop4 with space": null
+};
+x1.prop3 = "prop3val";
+x1["prop4 with space"] = "prop4val";
 
 //Object
-var x2={};
-x2.p1="zp1";
-x2.p2="zp2";
-x2.p3=false;
-x2["age"]=6;
+var x2 = {};
+x2.p1 = "zp1";
+x2.p2 = "zp2";
+x2.p3 = false;
+x2["age"] = 6;
 console.log(x2);
 
 //Arrays
-var x3=["a", true, 6, "John"];
+var x3 = ["a", true, 6, "John"];
 x3.push(true);
-x3.push(1/-0);
+x3.push(1 / -0);
 x3.pop(); // Pop removes the last element.
 console.log(x3);
 console.log(x3[2]);
 
+/***************  5. Data type conversion ***************/
+let a1 = 2 + 2 + "2" + 2;
+let a2 = 2 + true; //Gives 3
+let a3 = 3 + true + "2"; //Print 32
+console.log(a1);
 
-/***************  6. Data type conversion ***************/
- let a1=2 + 2 + '2'+ 2;
- let a2=2+true; //Gives 3
- let a3=3+true+'2'; //Print 32
- console.log(a1);
+if (x !== undefined || x !== null || x !== 0) {
+} //same as
+if (x) {
+}
 
- if((x !== undefined) || (x!== null) || (x !==0)){} //same as
- if(x){}
+/***************  6. Array.from Method in JS ***************/
+//To check an inbuilt function we have to use dir.
+//Array has a prototype method called from. (Array.from)
+console.dir(Array);
+[1, 2, 3].splice(); //Array methods
+Array.from([]); //Array constructor methods
+
+let str = "samantray";
+console.log([...str]); //Spread operator will convert to an array
+const fromString = Array.from(str);
+const fromScratch1 = Array.from({ length: 5 }, (v, i) => v);
+const fromScratch2 = Array.from({ length: 5 }, (v, i) => i * i);
+const fromScratch3 = new Array(5).fill(0).map((v, i) => i);
+console.log(fromScratch3);
+
+const Ary = [1, 1, 2, 2, 3, 4];
+console.log(Array.from(new Set(Ary)));
