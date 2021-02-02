@@ -62,10 +62,6 @@ console.log(negInfinity);
 
 /***************  5. Objects and Properties **************
  * (a) Objects are noted with {}. Arrays are special type of objects [].
- * -Primary Data Type   :  (String, Number[NaN, +infinity, -infinity, +0, -0], Boolean)
- * -Composite Data Type :  (Array, Object)
- * -Special Data Type   :  (NAN,Undefined, Null)
- *
  */
 
 var obj = {}; //Empty object
@@ -88,3 +84,13 @@ x3.push(1/-0);
 x3.pop(); // Pop removes the last element.
 console.log(x3);
 console.log(x3[2]);
+
+
+/***************  6. Data type conversion ***************/
+ let a1=2 + 2 + '2'+ 2;
+ let a2=2+true; //Gives 3
+ let a3=3+true+'2'; //Print 32
+ console.log(a1);
+
+ if((x !== undefined) || (x!== null) || (x !==0)){} //same as
+ if(x){}
