@@ -61,7 +61,7 @@ var negInfinity = 1 / -0;
 console.log(negInfinity);
 
 /***************  5. Objects and Properties **************
- * (a) Nested functions have access to variables declared in their outer space.
+ * (a) Objects are noted with {}. Arrays are special type of objects [].
  * -Primary Data Type   :  (String, Number[NaN, +infinity, -infinity, +0, -0], Boolean)
  * -Composite Data Type :  (Array, Object)
  * -Special Data Type   :  (NAN,Undefined, Null)
@@ -69,3 +69,22 @@ console.log(negInfinity);
  */
 
 var obj = {}; //Empty object
+var x1 ={prop1:"prop1val", prop2:"prop2val", prop3:null, prop4:null, "prop4 with space":null};
+x1.prop3="prop3val";
+x1["prop4 with space"] ="prop4val";
+
+//Object
+var x2={};
+x2.p1="zp1";
+x2.p2="zp2";
+x2.p3=false;
+x2["age"]=6;
+console.log(x2);
+
+//Arrays
+var x3=["a", true, 6, "John"];
+x3.push(true);
+x3.push(1/-0);
+x3.pop(); // Pop removes the last element.
+console.log(x3);
+console.log(x3[2]);
