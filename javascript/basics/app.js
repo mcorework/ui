@@ -157,3 +157,20 @@ for (let i = 0; i < 100000; i++) {
   o[i] = i;
 }
 console.timeEnd("obj");
+
+/***************  8. Object Oriented Programming ***************/
+//Objects in js (1.Non functional and 2.Functional). Functions in js is also object.
+//Array has a prototype method called from. (Array.from)
+
+var Pizza = {
+  brand: "Dominos",
+  crust: "thin",
+  toppings: 3,
+  hasBacon: true,
+  howmanyToppings: function() {
+    return this.toppings;
+  }
+};
+Pizza.price = 12;
+delete Pizza.crust;
+console.log(Pizza);
