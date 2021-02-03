@@ -1,6 +1,6 @@
 //"use strict";
-console.log("Connected to js.");
-
+const separator = () => console.log("-------------------------");
+// link : techsith tutorials (https://www.youtube.com/watch?v=sXV_31fwetY&list=PL7pEw9n3GkoVYU-ZKBrDnxIiiUn0YP-uO&index=9)
 // Notes
 // Declare a variable
 
@@ -199,4 +199,32 @@ pizzaA.crust = "pan"; //private member
 console.log(pizzaA.crust);
 console.log(pizzaA.getCrust);
 //console.log(pizzaA instanceof PizzaFunctionObj);
-console.log("The new object with private members is: " + pizzaA.getToppings());
+console.log("The private members is: " + pizzaA.getToppings()); //This is closure
+
+/***************  9. MAPs and WEAKMAPs (ES6)***************/
+
+const parentObj = {};
+const childObj1 = {};
+const childObj2 = { numb: 1 };
+parentObj[childObj1] = "Apple";
+parentObj[childObj2] = childObj2;
+console.log(parentObj[childObj2]);
+//In javascript: It supports only one key object.We need Maps.
+const a4 = {};
+const b4 = { num: 1 };
+const map = new Map();
+map.set(a4, "Manas").set(b4, false);
+map.delete(b4);
+
+separator();
+for (let [key, value] of map.entries()) {
+  console.log(key, value);
+}
+const ary = [...map]; //Convert to an array with spread operator
+//Map persists keys even if the key is delete, whereas weakmap does not.
+{
+  let x = { a: [1, 2] };
+  var weakMap = new WeakMap();
+  weakMap.set(x, "Johny");
+}
+console.log(weakMap);
