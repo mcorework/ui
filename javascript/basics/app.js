@@ -162,7 +162,7 @@ console.timeEnd("obj");
 //Objects in js (1.Non functional and 2.Functional). Functions in js is also object.
 //Array has a prototype method called from. (Array.from)
 
-var Pizza = {
+var PizzaObj = {
   brand: "Dominos",
   crust: "thin",
   toppings: 3,
@@ -171,6 +171,26 @@ var Pizza = {
     return this.toppings;
   }
 };
-Pizza.price = 12;
-delete Pizza.crust;
-console.log(Pizza);
+PizzaObj.price = 12;
+delete PizzaObj.crust;
+console.log(PizzaObj);
+
+
+//Function object
+var PizzaFunctionObj = function (){
+    var price =12; //private member
+    this.crust ='thick';  //public member
+    this.toppings = 4; //public member
+    this.hasBacon =false; //public member
+
+    this.getCrust = function(){
+        return this.crust;
+    }
+} 
+
+var pizzaA =new PizzaFunctionObj();
+var pizzaB =new PizzaFunctionObj();
+pizzaA.crust='pan';  //private member
+console.log(pizzaA.crust);
+console.log(pizzaA.getCrust);
+console.log(pizzaA instanceof PizzaFunctionObj);
