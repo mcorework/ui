@@ -175,22 +175,28 @@ PizzaObj.price = 12;
 delete PizzaObj.crust;
 console.log(PizzaObj);
 
+//Function object (Private Method)
+var PizzaFunctionObj = function() {
+  var price = 12; //private member
+  this.crust = "thick"; //public member
+  var toppings = 4; //private member
+  this.hasBacon = false; //public member
 
-//Function object
-var PizzaFunctionObj = function (){
-    var price =12; //private member
-    this.crust ='thick';  //public member
-    this.toppings = 4; //public member
-    this.hasBacon =false; //public member
+  this.getCrust = function() {
+    return this.crust;
+  };
+  var getToppings = function() {
+    return toppings;
+  };
 
-    this.getCrust = function(){
-        return this.crust;
-    }
-} 
-
-var pizzaA =new PizzaFunctionObj();
-var pizzaB =new PizzaFunctionObj();
-pizzaA.crust='pan';  //private member
+  var tmp = {};
+  tmp.getToppings = getToppings;
+  return tmp;
+};
+var pizzaA = new PizzaFunctionObj();
+var pizzaB = new PizzaFunctionObj();
+pizzaA.crust = "pan"; //private member
 console.log(pizzaA.crust);
 console.log(pizzaA.getCrust);
-console.log(pizzaA instanceof PizzaFunctionObj);
+//console.log(pizzaA instanceof PizzaFunctionObj);
+console.log("The new object with private members is: " + pizzaA.getToppings());
