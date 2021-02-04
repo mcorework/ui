@@ -202,7 +202,6 @@ console.log(pizzaA.getCrust);
 console.log("The private members is: " + pizzaA.getToppings()); //This is closure
 
 /***************  9. MAPs and WEAKMAPs (ES6)***************/
-
 const parentObj = {};
 const childObj1 = {};
 const childObj2 = { numb: 1 };
@@ -228,3 +227,22 @@ const ary = [...map]; //Convert to an array with spread operator
   weakMap.set(x, "Johny");
 }
 console.log(weakMap);
+
+/***************  10. SETs ***************/
+//You cannot have duplicate values in sets.
+const ary3 = [1, 2, 2, 4]; //Array Literal
+const myArray = new Array(); //Constructor
+const mySet = new Set(ary3);
+mySet.add(6);
+mySet
+  .add("India")
+  .add("USA")
+  .add("UK")
+  .delete("USA");
+//mySet.clear();
+for (let val of mySet) {
+  console.log(val);
+}
+//WeekSets (These only holds objects not primitives and not iterative like Sets)
+const ws = new WeakSet([{ a: 1 }, { b: 2 }]);
+ws.add({ a: 1 });
