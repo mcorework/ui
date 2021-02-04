@@ -246,3 +246,23 @@ for (let val of mySet) {
 //WeekSets (These only holds objects not primitives and not iterative like Sets)
 const ws = new WeakSet([{ a: 1 }, { b: 2 }]);
 ws.add({ a: 1 });
+
+/***************  11. Template String (ES6/ES2015) ***************/
+let str1 = "hello";
+let str2 = "hello";
+let str3 = `hello`; //All these declarations are same
+let x4 = `bond`;
+let bondline = `my name is ${x4},  James ${x4}`; //Interpolation
+let one = 1,
+  two = 2;
+let sum = `adding ${one} and ${two} gives ${one + two}`;
+console.log(sum);
+separator();
+let tagged = function(strArray, ...vals) {
+  console.log("str array is :" + strArray);
+  console.log("val array is :" + vals);
+};
+tagged`adding ${one} and ${two} gives ${one + two}`;
+console.log("hello world".startsWith("hell"));
+console.log("hello world".includes("wo"));
+console.log("hello world".repeat(3));
