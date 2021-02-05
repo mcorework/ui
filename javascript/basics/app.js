@@ -281,11 +281,22 @@ changePrimitive(a5);
 changeObject(a6);
 
 /***************  13. Default Parameter (ES6) ***************/
-let add = (a, b) => {
+let add = (a = 0, b = a) => {
   if (a === undefined) {
     a = 0;
   }
   b = b || 0;
   return a + b;
 };
-console.log(add());
+console.log(add(undefined, 1));
+
+let addArray = (a = [], b = []) => {
+  return [...a, ...b];
+};
+console.log(addArray([1], [3]));
+separator();
+const x6 = { a: 1, b: 2 };
+let addObject = ({ a = 0, b = 0 } = {}) => {
+  return a + b;
+};
+console.log(addObject(x6));
