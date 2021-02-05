@@ -266,3 +266,26 @@ tagged`adding ${one} and ${two} gives ${one + two}`;
 console.log("hello world".startsWith("hell"));
 console.log("hello world".includes("wo"));
 console.log("hello world".repeat(3));
+
+/***************  12. Pass by value and pass by reference ***************/
+//In javascript it is always pass by reference.
+let a5 = 5;
+let a6 = { num: 1 };
+let changePrimitive = val => {
+  val = 6;
+};
+let changeObject = val => {
+  val = {};
+};
+changePrimitive(a5);
+changeObject(a6);
+
+/***************  13. Default Parameter (ES6) ***************/
+let add = (a, b) => {
+  if (a === undefined) {
+    a = 0;
+  }
+  b = b || 0;
+  return a + b;
+};
+console.log(add());
