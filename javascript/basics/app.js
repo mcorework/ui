@@ -300,3 +300,51 @@ let addObject = ({ a = 0, b = 0 } = {}) => {
   return a + b;
 };
 console.log(addObject(x6));
+
+/***************  14. Callback Functions (Higher Order Functions)***************/
+let c = function() {
+  console.log("I am called from inside a function.");
+};
+
+let d = function(callback) {
+  console.log("I am inside the main function.");
+  callback();
+};
+d(c);
+
+let addNum = function(a, b) {
+  return a + b;
+};
+let multiplyNum = function(a, b) {
+  return a * b;
+};
+let calc = function(num1, num2, callback) {
+  if (typeof callback === "function") {
+    return callback(num1, num2);
+  }
+};
+console.log(calc(45, 67, (a, b) => a / b));
+separator();
+var myArr = [
+  {
+    num: 5,
+    str: "apple"
+  },
+  {
+    num: 7,
+    str: "cabbage"
+  },
+  {
+    num: 1,
+    str: "banana"
+  }
+];
+
+myArr.sort(function(val1, val2) {
+  if (val1.num < val2.num) {
+    return -1;
+  } else return 1;
+});
+console.log(myArr);
+
+/***************  15. ES6 Rest and Spread Operator ***************/
