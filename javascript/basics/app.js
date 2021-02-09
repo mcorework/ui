@@ -348,3 +348,36 @@ myArr.sort(function(val1, val2) {
 console.log(myArr);
 
 /***************  15. ES6 Rest and Spread Operator ***************/
+var x7 = function(a, b, c, ...n) {
+  //This is also called rest parameters
+  //Spread operator spreads the argument to an array.
+  console.log(n);
+  console.log(arguments); //arguments is an object not an array
+  var args = Array.prototype.slice.call(arguments, 0); //converting arguments to an array
+  var args = [].slice.call(arguments, 0);
+  console.log(args);
+};
+x7(1, false, 2, "banana", undefined);
+var arr1 = ["d", "e", "f"];
+var arr2 = ["a", "b", "c", ...arr1, "g", "h"];
+console.log(arr2);
+
+var a7 = [1, 2, 3];
+var b5 = [4, 5, 6];
+Array.prototype.push.apply(a7, b5); //old way
+a7.push(...b5); //New way
+console.log(a7);
+
+/****+**********  16. ES6 Spread Operator and Application ***************/
+let q1 = [1, 2, 3, 4];
+let q0 = [5, 6, 7];
+let q2 = Object.assign([], q1);
+let q3 = [...q1, ...q0];
+console.log(q1.concat(...q0));
+let func = function(...arg) {
+  console.log(arg);
+};
+func(q1);
+let mathData = [6, 9];
+console.log(Math.hypot(...mathData));
+console.log(Math.min(...q2));
