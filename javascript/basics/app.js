@@ -368,7 +368,7 @@ Array.prototype.push.apply(a7, b5); //old way
 a7.push(...b5); //New way
 console.log(a7);
 
-/****+**********  16. ES6 Spread Operator and Application ***************/
+/**************  16. ES6 Spread Operator and Application ***************/
 let q1 = [1, 2, 3, 4];
 let q0 = [5, 6, 7];
 let q2 = Object.assign([], q1);
@@ -381,3 +381,37 @@ func(q1);
 let mathData = [6, 9];
 console.log(Math.hypot(...mathData));
 console.log(Math.min(...q2));
+
+/**************  17. IIFE (Immediately invoked function expression) ***************/
+//Self invoked function, It can be anonymous function.
+(function(i) {
+  console.log(i * i);
+})(8);
+!(function(i) {})(9);
+~(function(i) {})(9);
+-(function(i) {})(9);
++(function(i) {})(9);
+//(function($) {
+//  $(this).addClass("MyClass");
+//})(window.JQuery);
+//How to write a simple js library with iife
+var counter = (function() {
+  var i = 0;
+  return {
+    get: function() {
+      return i;
+    },
+    set: function(val) {
+      i = val;
+    },
+    increment: function() {
+      i++;
+    }
+  };
+})();
+console.log(counter.get());
+counter.set(6);
+counter.increment();
+console.log(counter.get());
+
+/**************  18. Arrow Function (ES6) ***************/
