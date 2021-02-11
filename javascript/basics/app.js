@@ -415,3 +415,36 @@ counter.increment();
 console.log(counter.get());
 
 /**************  18. Arrow Function (ES6) ***************/
+"use strict";
+() =>{} //Fat Arrows
+//var getA = function(a){
+//    return a;
+//}
+var z = 8;
+let getA = a => a;
+let square = (a) => { return a*a };
+let cube = _ => { return z*z*z };
+console.log(getA(87));
+//Why are we using fat arrow
+var x8 = function(){
+    this.val = 1;
+    setTimeout(function(){
+        this.val++;
+        console.log(this.val);
+    }, 1)
+};
+var x8 = function(){
+    this.val = 1;
+    setTimeout(function(){
+        this.val++;
+        console.log(this.val);
+    }, 1)
+};
+var x88 = function(){
+    this.val = 1;
+    setTimeout(() =>{
+        this.val++;
+        console.log(this.val);
+    }, 1)
+};
+var x9 = new x88();  //this is not recognized insed setTimeout fuction.
