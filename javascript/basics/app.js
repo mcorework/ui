@@ -1,7 +1,7 @@
 //"use strict";
 const separator = () => console.log("-------------------------");
 // link : techsith tutorials (https://www.youtube.com/watch?v=sXV_31fwetY&list=PL7pEw9n3GkoVYU-ZKBrDnxIiiUn0YP-uO&index=9)
-// Notes
+// techsith javascript fundamentals youtube videos
 // Declare a variable
 
 /***************  1.Global vs Local variables (Lexical scoping) **************
@@ -468,11 +468,17 @@ let message1 = () => {
 //let timeoutID = setInterval(function, miliseconds);
 //clearInterval(timeoutID);
 
-/**************  20. call appy and bind ***************/
-var objct1 = {num : 5};
-var objct2 = {num : 6};
+/**************  20, 21. call appy and bind ***************/
+var objct1 = {
+  num1 : 5,
+  num2: 6
+};
+var objct2 = {
+  num1 : 6,
+  num2: 8
+};
 var addToThis = function (a, b, c){
-  return this.num + a + b + c;
+  return this.num1 +this.num2 + a + b + c;
 }
 separator();
 console.log(addToThis.call(objct1, 3,4,5));
@@ -481,3 +487,49 @@ var objArr = [6,7,10];
 console.log(addToThis.apply(objct1, objArr));
 var bound = addToThis.bind(objct1);
 console.log(bound(5,8,12));
+
+//Mixing, multiple inheritance can be achieved with call, apply and bind
+//Every object has prototype and it has bunch of methods
+//utility of call function
+let argsToArray = function(){
+  console.dir([].slice.call(arguments)); //converts arguments to an array
+}
+argsToArray(1,2,3);
+
+let mammal = function(legs){
+  this.legs = legs;
+}
+let cat = function(legs, isDomesticated){
+  mammal.call(this, legs);
+}
+let lion = new cat(4, false);
+console.log(lion);
+//utility of apply function
+//when you pass an argument, it converts to regular arguments
+let numArray = [1,2,3];
+console.log(Math.min.apply(null, numArray));
+//utility of bind function
+let button = function(content){ //This is a constructor
+  this.content = content;
+}
+button.prototype.click = function(){
+  console.log(`${this.content} clicked`);
+}
+let newButton = new button('add');
+let boundButton = newButton.click.bind(newButton);
+boundButton();
+
+let myObj ={
+  asyncGet(callbck){
+    callbck();
+  },
+  parse(){
+    console.log('parse called.')
+  },
+  render(){
+    this.asyncGet(function(){
+      this.parse();
+    }.bind(this));
+  }
+}
+myObj.render();
