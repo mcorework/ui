@@ -446,24 +446,38 @@ var x8 = function() {
 };
 var x88 = function() {
   this.val = 1;
-  setTimeout(() => {
-    this.val++;
-    console.log(this.val);
-  }, 1);
+  //setTimeout(() => {
+  //  this.val++;
+  //  console.log(this.val);
+  //}, 1);
 };
 var x9 = new x88(); //this is not recognized insed setTimeout fuction.
 
 /**************  19. setTimeout and setInterval ***************/
 //let timeoutID = window.setTimeout(function, miliseconds);
 //setTimeout is asynchronous
-setTimeout(() => {
-  console.log("greetings from setTimeout.");
-}, 5000);
+//setTimeout(() => {
+//  console.log("greetings from setTimeout.");
+//}, 5);
 
 let message1 = () => {
   console.log("greetings from setTimeout new.");
 };
-setTimeout(message1, 6000);
+//setTimeout(message1, 6);
 
 //let timeoutID = setInterval(function, miliseconds);
 //clearInterval(timeoutID);
+
+/**************  20. call appy and bind ***************/
+var objct1 = {num : 5};
+var objct2 = {num : 6};
+var addToThis = function (a, b, c){
+  return this.num + a + b + c;
+}
+separator();
+console.log(addToThis.call(objct1, 3,4,5));
+console.log(addToThis.call(objct2, 3,4,5));
+var objArr = [6,7,10];
+console.log(addToThis.apply(objct1, objArr));
+var bound = addToThis.bind(objct1);
+console.log(bound(5,8,12));
