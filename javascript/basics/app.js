@@ -513,7 +513,7 @@ let button = function(content){ //This is a constructor
   this.content = content;
 }
 button.prototype.click = function(){
-  console.log(`${this.content} clicked`);
+  //console.log(`${this.content} clicked`);
 }
 let newButton = new button('add');
 let boundButton = newButton.click.bind(newButton);
@@ -524,7 +524,7 @@ let myObj ={
     callbck();
   },
   parse(){
-    console.log('parse called.')
+    //console.log('parse called.')
   },
   render(){
     this.asyncGet(function(){
@@ -533,3 +533,15 @@ let myObj ={
   }
 }
 myObj.render();
+
+/**************  22 Closures in (loop, inner fn and setTimeout) ***************/
+let f = () =>{
+  let i =1;
+  let j =2;
+  return () =>{
+    console.log(i)
+  }
+};
+console.dir(f());
+
+/**************  23 Javascript Modules (ES6) ***************/
