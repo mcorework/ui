@@ -545,3 +545,57 @@ let f = () =>{
 console.dir(f());
 
 /**************  23 Javascript Modules (ES6) ***************/
+/**************  24 Function/Method Chaining ***************/
+var obj = function(){
+  var i =0;
+  var add = function(j){
+      i += j;
+      return this;
+  };
+  var subtract = function(j){
+    i -= j;
+    return this;
+  };
+  var print = function(){
+    console.log(i);
+  };
+  return {add:add, subtract:subtract, print:print}
+}
+var x = obj();
+x.add(5).subtract(2).print();
+
+/**************  25 Currying in Javascript ***************/
+//First example of currying
+var addition = function(a){
+  return function(b){
+    return a + b;
+  }
+}
+var addToSix = addition(6);
+console.log(addToSix);
+
+//Second example of currying
+var avg = function(...n){
+  let tot = 0;
+  for(let i=0; i<n.length; i+=1){
+    tot += n[i];
+  }
+  return tot/n.length;
+};
+var spiceUp = function(fn, ...n){
+  return function(...m){
+    return fn.apply(this, n.concat(m));
+  }
+}
+var doAvg = spiceUp(avg, 1, 2, 3);
+console.log(doAvg(7, 8, 9));
+
+//Third Example of currying
+var sayWhat = function(a){
+  return function(b){
+    return function(c){
+      console.log("Saying "+ a + " to "+ b + " using " + c);
+    }
+  }
+}
+sayWhat('Hello')('friends')('Javascript');
