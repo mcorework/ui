@@ -599,3 +599,6 @@ var sayWhat = function(a){
   }
 }
 sayWhat('Hello')('friends')('Javascript');
+
+/**************  26 Object Oriented (Classes) Programming ***************/
+//Javascript classes are nothing but function constructors with prototype methods
