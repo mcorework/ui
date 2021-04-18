@@ -602,3 +602,13 @@ sayWhat('Hello')('friends')('Javascript');
 
 /**************  26 Object Oriented (Classes) Programming ***************/
 //Javascript classes are nothing but function constructors with prototype methods
+class Car{
+  constructor(color){
+    this.color = color;
+  }
+  drive(){
+    console.log("...driving");
+  }
+}
+console.log(typeof(Car));
+let redcar=new Car('red');
